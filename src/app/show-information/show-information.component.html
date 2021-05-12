@@ -1,0 +1,45 @@
+<h1 style="color:brown">Medicine Info</h1>
+<!-- <ul class = "list-group">
+    <li class="list-group-item" *ngFor="let item of infoList">
+      <p>{{item | json}}</p>
+    </li>
+  </ul> -->
+<hr>
+<div class = "card-block" style="text-align: left" *ngFor="let item of infoList">
+  <table>
+    <tr>
+      <td>
+        Medicine Name :
+      </td>
+      <td>
+        {{ item.medicineName }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Frequency is:
+      </td>
+      <td>
+        {{item.frequency}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Duration is:
+      </td>
+      <td>
+        {{item.duration}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Medicine Info is:
+      </td>
+      <td>
+        {{item.medicineInfo}}
+      </td>
+    </tr>
+  </table>
+  <hr>
+</div>
+

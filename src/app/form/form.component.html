@@ -1,0 +1,69 @@
+<div *ngIf="showForm" class = "container">
+<form novalidate [formGroup]="tabletForm" (ngSubmit)="onSubmit()">
+
+<div class = "form-group"
+    [ngClass]="{
+        'danger': medicineName.invalid && (medicineName.dirty || medicineName.touched),
+        'success' : medicineName.valid && (medicineName.dirty || medicineName.touched)
+    }">
+    <label>Medicine Name</label>
+    <input type="text" class="form-control" formControlName="medicineName" required>
+    <div style = "color:red">
+    <div class = "form-control-feedback"
+    *ngIf = "medicineName.errors && (medicineName.dirty || medicineName.touched)">
+    <p *ngIf = "medicineName.errors.required">
+        Please enter medicine Name
+    </p>
+</div></div>
+</div>
+<div class = "form-group"
+    [ngClass]="{
+        'danger': frequency.invalid && (frequency.dirty || frequency.touched),
+        'success' : frequency.valid && (frequency.dirty || frequency.touched)
+    }">
+    <label>Frequency</label>
+    <input type="number" class="form-control" inputmode="numeric"  formControlName="frequency" required>
+    <div style = "color:red">
+    <div class = "form-control-feedback"
+    *ngIf = "frequency.errors && (frequency.dirty || frequency.touched)">
+    <p *ngIf = "frequency.errors.required">
+        Please enter frequency
+    </p>
+</div></div>
+</div>
+<div class = "form-group"
+    [ngClass]="{
+        'danger': duration.invalid && (duration.dirty || duration.touched),
+        'success' : duration.valid && (duration.dirty || duration.touched)
+    }">
+    <label>Duration</label>
+    <input type="text" class="form-control" formControlName="duration" required>
+    <div style = "color:red">
+    <div class = "form-control-feedback"
+    *ngIf = "duration.errors && (duration.dirty || duration.touched)">
+    <p *ngIf = "duration.errors.required">
+        Please enter Duration
+    </p>
+</div></div>
+</div>
+<div class = "form-group"
+    [ngClass]="{
+        'danger': medicineInfo.invalid && (medicineInfo.dirty || medicineInfo.touched),
+        'success' : medicineInfo.valid && (medicineInfo.dirty || medicineInfo.touched)
+    }">
+    <label>Medicine Info</label>
+    <input type="text" class="form-control" formControlName="medicineInfo" required>
+    <div style = "color:red">
+    <div class = "form-control-feedback"
+    *ngIf = "medicineInfo.errors && (medicineInfo.dirty || medicineInfo.touched)">
+    <p *ngIf = "medicineInfo.errors.required">
+        Please enter medicine Info
+    </p>
+</div></div>
+</div>
+<button type = "submit" class = "btn btn-primary">
+    Submit
+</button>
+
+</form>
+</div>
