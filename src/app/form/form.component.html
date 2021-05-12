@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <div *ngIf="showForm" class = "container">
+=======
+<div class = "card card-block">
+>>>>>>> cdbdf60d7ba39860c26e198b27f02025863d6ce9
 <form novalidate [formGroup]="tabletForm" (ngSubmit)="onSubmit()">
 
 <div class = "form-group"
@@ -8,13 +12,20 @@
     }">
     <label>Medicine Name</label>
     <input type="text" class="form-control" formControlName="medicineName" required>
+<<<<<<< HEAD
     <div style = "color:red">
+=======
+>>>>>>> cdbdf60d7ba39860c26e198b27f02025863d6ce9
     <div class = "form-control-feedback"
     *ngIf = "medicineName.errors && (medicineName.dirty || medicineName.touched)">
     <p *ngIf = "medicineName.errors.required">
         Please enter medicine Name
     </p>
+<<<<<<< HEAD
 </div></div>
+=======
+</div>
+>>>>>>> cdbdf60d7ba39860c26e198b27f02025863d6ce9
 </div>
 <div class = "form-group"
     [ngClass]="{
@@ -22,14 +33,22 @@
         'success' : frequency.valid && (frequency.dirty || frequency.touched)
     }">
     <label>Frequency</label>
+<<<<<<< HEAD
     <input type="number" class="form-control" inputmode="numeric"  formControlName="frequency" required>
     <div style = "color:red">
+=======
+    <input type="text" class="form-control" formControlName="frequency" required>
+>>>>>>> cdbdf60d7ba39860c26e198b27f02025863d6ce9
     <div class = "form-control-feedback"
     *ngIf = "frequency.errors && (frequency.dirty || frequency.touched)">
     <p *ngIf = "frequency.errors.required">
         Please enter frequency
     </p>
+<<<<<<< HEAD
 </div></div>
+=======
+</div>
+>>>>>>> cdbdf60d7ba39860c26e198b27f02025863d6ce9
 </div>
 <div class = "form-group"
     [ngClass]="{
@@ -53,11 +72,10 @@
     }">
     <label>Medicine Info</label>
     <input type="text" class="form-control" formControlName="medicineInfo" required>
-    <div style = "color:red">
     <div class = "form-control-feedback"
     *ngIf = "medicineInfo.errors && (medicineInfo.dirty || medicineInfo.touched)">
     <p *ngIf = "medicineInfo.errors.required">
-        Please enter medicine Info
+        Please enter Duration
     </p>
 </div></div>
 </div>

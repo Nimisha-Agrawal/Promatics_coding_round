@@ -5,6 +5,8 @@ import * as EventEmitter from 'events';
 import { DataService } from '../data.service';
 import { ModalBoxService } from '../modal-box.service';
 
+
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -13,6 +15,10 @@ import { ModalBoxService } from '../modal-box.service';
 export class FormComponent implements OnInit {
  // @Input("type") typeOfMedicine: string;
  // @Output() sendInformation = new EventEmitter();
+
+  @Input("type") typeOfMedicine: string;
+  @Output()  sendInformation = new EventEmitter();
+
 
   tabletForm : FormGroup;
   medicineName: FormControl;
