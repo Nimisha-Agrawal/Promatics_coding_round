@@ -12,10 +12,7 @@ export class AppComponent {
   data : any;
   showInfo = false;
   infoList:[];
-<<<<<<< HEAD
   
-=======
->>>>>>> cdbdf60d7ba39860c26e198b27f02025863d6ce9
   addForm(name){
     if(name==="Tablet" || name==="Capsule" || name==="Syrup"){
         this.showForm = true;
