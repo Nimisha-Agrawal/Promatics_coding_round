@@ -8,6 +8,9 @@ import { FormComponent } from './form/form.component';
 import { ShowInformationComponent } from './show-information/show-information.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './data.service';
+import {MatDialogModule} from "@angular/material/dialog";
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,13 @@ import { DataService } from './data.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[FormComponent]
 })
 export class AppModule { }

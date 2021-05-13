@@ -3,14 +3,17 @@
                 <nav class="navbar vertical-menu">
                         <ul class="nav navbar-nav">
                                 <li class="nav-item" *ngFor="let option of options">
-                                        <a class="button" routerLinkActive="activebutton" [routerLink]="['./form',this.showForm]"
-                                                (click)="this.showForm=!this.showForm"> {{option}} </a>
+                                        <a class="button" routerLinkActive="activebutton"
+                                                (click)="openDialog(option)"> {{option}} </a>
                                 </li>
                         </ul>
                 </nav>
         </div>
         <div class="col-9">
                 <!-- <app-form  *ngIf = "showForm" [type] = "name" (sendInformation)="showInformation($event)"></app-form> -->
+                <!-- <nav class="nav nav-pills nav-fill">
+                        <a class="nav-item nav-link active" href="#">{{name}}</a>
+                </nav> -->
                 <router-outlet></router-outlet>
         </div>
 </div>

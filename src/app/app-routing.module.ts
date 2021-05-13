@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: "nav", component: NavBarComponent,
     children: [
-      { path: "form/:showForm", component: FormComponent },
+      { path: "form", component: FormComponent },
     ]
   },
   { path: "saved-data", component: ShowInformationComponent },

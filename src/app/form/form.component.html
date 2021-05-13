@@ -1,4 +1,4 @@
-<div *ngIf="showForm" class = "container">
+<!-- <div *ngIf="showForm" class = "container">
 <form novalidate [formGroup]="tabletForm" (ngSubmit)="onSubmit()">
 
 <div class = "form-group"
@@ -61,9 +61,69 @@
     </p>
 </div></div>
 </div>
-<button type = "submit" class = "btn btn-primary">
+<button type = "submit" id="submitClick" class = "btn btn-primary" [disabled]="tabletForm.invalid" style="visibility:hidden">
     Submit
 </button>
 
 </form>
-</div>
+</div> -->
+
+<h2 mat-dialog-title>{{name}}</h2>
+
+<mat-dialog-content [formGroup]="tabletForm">
+  
+    <mat-form-field>
+        <input matInput
+                placeholder="Medicine Name"
+               formControlName="medicineName">
+               <div style = "color:red">
+                <div class = "form-control-feedback"
+                *ngIf = "medicineName.errors && (medicineName.dirty || medicineName.touched)">
+                <p *ngIf = "medicineName.errors.required">
+                    Please enter medicine Name
+                </p>
+            </div></div>
+    </mat-form-field>
+     
+    <mat-form-field>
+        <input matInput
+                placeholder="Frequency"
+               formControlName="frequency">
+               <div style = "color:red">
+                <div class = "form-control-feedback"
+                *ngIf = "frequency.errors && (frequency.dirty || frequency.touched)">
+                <p *ngIf = "frequency.errors.required">
+                    Please enter frequency
+                </p>
+            </div></div>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput
+                placeholder="Duration"
+               formControlName="duration">
+               <div style = "color:red">
+                <div class = "form-control-feedback"
+                *ngIf = "duration.errors && (duration.dirty || duration.touched)">
+                <p *ngIf = "duration.errors.required">
+                    Please enter duration
+                </p>
+            </div></div>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput
+                placeholder="Medicine Info"
+               formControlName="medicineInfo">
+               <div style = "color:red">
+                <div class = "form-control-feedback"
+                *ngIf = "medicineInfo.errors && (medicineInfo.dirty || medicineInfo.touched)">
+                <p *ngIf = "medicineInfo.errors.required">
+                    Please enter medicine Info
+                </p>
+            </div></div>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>

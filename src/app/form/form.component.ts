@@ -1,8 +1,10 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Inject, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as EventEmitter from 'events';
 import { DataService } from '../data.service';
+
 import { ModalBoxService } from '../modal-box.service';
 
 
@@ -30,15 +32,23 @@ export class FormComponent implements OnInit {
   });
   formCount: any = 0;
   showForm: boolean;
+  name:string;
 
   constructor(private router: Router,
     private route:ActivatedRoute,
-    private data:DataService) { this.route.params.subscribe(params => {
-        console.log(params);
-        if(params['showForm']){
-            this.showForm = params['showForm'];
-        }  
-      })
+    private data:DataService,
+    private dialogRef: MatDialogRef<FormComponent>,
+    @Inject(MAT_DIALOG_DATA) description) { 
+      // this.route.params.subscribe(params => {
+      //   console.log(params);
+      //   if(params['showForm']){
+      //       this.showForm = params['showForm'];
+      //   }  
+        // if(params['name']){
+        //     this.name = params['name'];
+        // }
+      // })
+      this.name = description.name;
   }
       ngOnInit():void{
         this.create_FormControls();
@@ -83,12 +93,22 @@ export class FormComponent implements OnInit {
 
           onSubmit(){
             if(this.tabletForm.valid){
-              this.showForm=false;
                 //this.sendInformation.emit(this.tabletForm.value);
                 this.data.setData(this.tabletForm.value);
-              this.router.navigate(["saved-data"]);
-              this.tabletForm.reset();
+              //this.router.navigate(["saved-data"]);
+             // this.tabletForm.reset();
               console.log("Submitted");
             }
           }
+          save() {
+            if(this.tabletForm.valid){
+              this.data.setData(this.tabletForm.value);
+              this.router.navigate(["saved-data"]);
+            this.dialogRef.close(this.tabletForm.value);
+            }
+        }
+    
+        close() {
+            this.dialogRef.close();
+        }
     }
