@@ -48,7 +48,7 @@ export class FormComponent implements OnInit {
         //     this.name = params['name'];
         // }
       // })
-      this.name = description.name;
+      this.name = description.title;
   }
       ngOnInit():void{
         this.create_FormControls();
@@ -94,7 +94,7 @@ export class FormComponent implements OnInit {
           onSubmit(){
             if(this.tabletForm.valid){
                 //this.sendInformation.emit(this.tabletForm.value);
-                this.data.setData(this.tabletForm.value);
+                this.data.setData(this.tabletForm.value,this.name);
               //this.router.navigate(["saved-data"]);
              // this.tabletForm.reset();
               console.log("Submitted");
@@ -102,8 +102,8 @@ export class FormComponent implements OnInit {
           }
           save() {
             if(this.tabletForm.valid){
-              this.data.setData(this.tabletForm.value);
-              this.router.navigate(["saved-data"]);
+              this.data.setData(this.tabletForm.value,this.name);
+              // this.router.navigate(["saved-data"]);
             this.dialogRef.close(this.tabletForm.value);
             }
         }

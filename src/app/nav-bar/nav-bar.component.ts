@@ -14,8 +14,10 @@ export class NavBarComponent implements OnInit {
 
   options: string[] = ['Capsule', 'Tablet', 'Syrup'];
   showForm: boolean = false;
-  name: string = "";
-  @Output() openTablet = new EventEmitter();
+  nameOfOption: string = "";
+  disablePreset = false;
+  disableDone = false;
+  isClosed: boolean = true;
   constructor(private router: Router,private dialog:MatDialog) { }
 
   ngOnInit(): void {
@@ -23,10 +25,8 @@ export class NavBarComponent implements OnInit {
   }
 
   openForm(name: string) {
-    //this.openTablet.emit(name);
-    // this.form.ngOnInit();
     this.showForm = !this.showForm;
-    this.name = name;
+    this.nameOfOption = name;
     //this.router.navigate(["FormComponent"]);
   }
 
@@ -34,7 +34,9 @@ export class NavBarComponent implements OnInit {
   //   this.router.navigate(['saved-data',{data:event}]);
   // }
   openDialog(option:string) {
-
+    if(this.isClosed === true){
+    this.disableDone = true;
+    this.isClosed = false;
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -53,8 +55,19 @@ export class NavBarComponent implements OnInit {
     const dialogRef = this.dialog.open(FormComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", data)
-    );    
+       (data) => {console.log("Dialog output:", data),
+          this.disableDone = false,
+          this.isClosed = true }
+    );
+      }
+      else{
+        throw alert("Please save or discard your changes first");
+      }
   }
-
+ nextStep(){
+    this.router.navigate(["saved-data"]);
+  }
+  presetStep(){
+    this.router.navigate(["nav"]);
+  }
 }

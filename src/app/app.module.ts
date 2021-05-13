@@ -11,13 +11,15 @@ import { DataService } from './data.service';
 import {MatDialogModule} from "@angular/material/dialog";
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FooterActionComponent } from './footer-action/footer-action.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     FormComponent,
-    ShowInformationComponent
+    ShowInformationComponent,
+    FooterActionComponent
   ],
   imports: [
     BrowserModule,

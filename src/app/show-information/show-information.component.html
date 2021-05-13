@@ -1,12 +1,12 @@
-<h1 style="color:brown">Medicine Info</h1>
+<h1 style="color:brown;font-size:40px;font-weight: 800;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Medicine Info</h1>
 <!-- <ul class = "list-group">
     <li class="list-group-item" *ngFor="let item of infoList">
       <p>{{item | json}}</p>
     </li>
   </ul> -->
-<hr>
-<div class = "card-block" style="text-align: left" *ngFor="let item of infoList">
-  <table>
+<hr style="font-weight: 500;">
+<!--<div class = "card-block" style="text-align: left" *ngFor="let item of infoList">
+ <table>
     <tr>
       <td>
         Medicine Name :
@@ -39,7 +39,18 @@
         {{item.medicineInfo}}
       </td>
     </tr>
+  </table> -->
+  <div class="container">
+  <table>
+    <tr>
+      <th></th><th>Medicine Name</th><th>Frequency</th><th>Duration</th><th>Medicine Info</th></tr>
+      <tr *ngFor="let item of infoList ; let i = index">
+        <td>{{item.optionSelected}}</td>
+        <td>{{item.medicineName}}</td>
+        <td>{{item.frequency}}</td>
+        <td>{{item.duration}}</td>
+        <td>{{item.medicineInfo}}</td>
+      </tr>
   </table>
-  <hr>
 </div>
 

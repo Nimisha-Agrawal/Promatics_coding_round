@@ -10,10 +10,13 @@
                 </nav>
         </div>
         <div class="col-9">
-                <!-- <app-form  *ngIf = "showForm" [type] = "name" (sendInformation)="showInformation($event)"></app-form> -->
+                <!-- <app-form  *ngIf = "showForm" [type] = "nameOfOption" (sendInformation)="showInformation($event)"></app-form> -->
                 <!-- <nav class="nav nav-pills nav-fill">
-                        <a class="nav-item nav-link active" href="#">{{name}}</a>
+                        <a class="nav-item nav-link active" href="#">{{nameOfOption}}</a>
                 </nav> -->
                 <router-outlet></router-outlet>
         </div>
 </div>
+<footer>
+<app-footer-action [disableBack]="false" [disablePreset]="disablePreset" [disableDone]="disableDone" [showBack]="true" [showPreset]="true"  [showDone]="true" (clickPreset)="presetStep()"  (clickDone)="nextStep()"></app-footer-action>
+</footer>

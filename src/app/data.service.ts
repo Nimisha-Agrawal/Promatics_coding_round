@@ -14,8 +14,8 @@ export class DataService {
     return this.medicineList;
   }
 
-  setData(data:any){
-    const medicine = new Medicine(data['medicineName'],data['frequency'],data['duration'],data['medicineInfo']);
+  setData(data:any,optionSelected:string){
+    const medicine = new Medicine(optionSelected,data['medicineName'],data['frequency'],data['duration'],data['medicineInfo']);
     this.medicineList.push(medicine);
   }
   constructor() { }
